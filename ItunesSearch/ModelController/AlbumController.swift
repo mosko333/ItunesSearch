@@ -52,5 +52,26 @@ class AlbumController {
             }
         }.resume()
     }
+    
+    static func fetchImageWith(artWorkUrlString: String, completion: @escaping ((UIImage) -> Void)) {
+        //URL
+        guard let url = URL(string: artWorkUrlString) else { completion(#imageLiteral(resourceName: "noArt")) ; return }
+        print("📡\(url.absoluteString)📡")
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

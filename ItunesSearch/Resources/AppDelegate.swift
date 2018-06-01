@@ -16,9 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-//        AlbumController.fetchAlbumWith(searchTerm: "meatloaf") { (albums) in
-//            print(albums?.count)
-//        }
+        AlbumController.fetchAlbumWith(searchTerm: "meatloaf") { (albums) in
+            guard let albums = albums else { return }
+            print(albums.count)
+            //guard let imageString = albums[0].artWorkUrlString else { return }
+//            AlbumController.fetchImageWith(artWorkUrlString: imageString, completion: { (image) in
+//                print("test")
+//            })
+        }
         
         return true
     }

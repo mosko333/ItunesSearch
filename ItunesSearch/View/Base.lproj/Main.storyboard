@@ -37,7 +37,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="141.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KeB-cS-Gvd">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noArt" translatesAutoresizingMaskIntoConstraints="NO" id="KeB-cS-Gvd">
                                                     <rect key="frame" x="23" y="19" width="104" height="104"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="KeB-cS-Gvd" secondAttribute="height" multiplier="1:1" id="EyR-b3-Hbv"/>
@@ -125,4 +125,7 @@
             <point key="canvasLocation" x="32.799999999999997" y="128.18590704647679"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="noArt" width="337" height="351"/>
+    </resources>
 </document>
