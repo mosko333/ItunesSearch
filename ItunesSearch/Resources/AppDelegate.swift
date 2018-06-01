@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-//        AlbumController.fetchAlbumWith(searchTerm: "meatloaf") { (album) in
-//            print("test")
+//        AlbumController.fetchAlbumWith(searchTerm: "meatloaf") { (albums) in
+//            print(albums?.count)
 //        }
         
         return true

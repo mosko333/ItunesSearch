@@ -28,6 +28,29 @@ class AlbumController {
             print("❌ Error creating complete url")
             completion(nil) ; return }
         print("📡\(finalUrl.absoluteString)📡")
+        
+        // Request
+        // Already default
+        
+        //DataTaks
+        URLSession.shared.dataTask(with: finalUrl) { (data, _, error) in
+            if let error = error {
+                print("❌ Error downloading Album with DataTask \(error.localizedDescription)")
+                completion(nil) ; return }
+            guard let data = data else { completion(nil) ; return }
+            do {
+                let jsonDecoder = JSONDecoder()
+                let topLevelData = try jsonDecoder.decode(TopLevelData.self, from: data)
+                let albums = topLevelData.results
+                completion(albums) ; return
+            } catch DecodingError.keyNotFound(let codingKey, let context){
+                print("❌Error: Coding key not found: \(codingKey) in \(context)")
+                completion(nil) ; return
+            } catch {
+                print("❌ Error decoding fetched Album: \(error.localizedDescription)")
+                completion(nil) ; return
+            }
+        }.resume()
     }
 
 }
