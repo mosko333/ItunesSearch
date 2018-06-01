@@ -1,5 +1,5 @@
 //
-//  Song.swift
+//  Album.swift
 //  ItunesSearch
 //
 //  Created by Adam on 01/06/2018.
@@ -10,7 +10,6 @@ import Foundation
 
 struct TopLevelData: Codable {
     let results: [Album]
-
 }
 
 struct Album: Codable {
