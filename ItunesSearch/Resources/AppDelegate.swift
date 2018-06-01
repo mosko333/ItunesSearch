@@ -16,14 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        AlbumController.fetchAlbumWith(searchTerm: "meatloaf") { (albums) in
-            guard let albums = albums else { return }
-            print(albums.count)
-            //guard let imageString = albums[0].artWorkUrlString else { return }
+//        AlbumController.fetchAlbumWith(searchTerm: "meatloaf") { (albums) in
+//            guard let albums = albums else { return }
+//            print(albums.count)
+//            print(albums.first?.artWorkUrlString)
+//            guard let imageString = albums.first?.artWorkUrlString else { return }
 //            AlbumController.fetchImageWith(artWorkUrlString: imageString, completion: { (image) in
+//                let image = image
 //                print("test")
 //            })
-        }
+//        }
         
         return true
     }

@@ -28,10 +28,7 @@ class AlbumController {
             print("❌ Error creating complete url")
             completion(nil) ; return }
         print("📡\(finalUrl.absoluteString)📡")
-        
-        // Request
-        // Already default
-        
+
         //DataTaks
         URLSession.shared.dataTask(with: finalUrl) { (data, _, error) in
             if let error = error {
@@ -48,7 +45,7 @@ class AlbumController {
                 completion(nil) ; return
             } catch {
                 print("❌ Error decoding fetched Album: \(error.localizedDescription)")
-                completion(nil) ; return
+                completion(nil)
             }
         }.resume()
     }
@@ -57,6 +54,16 @@ class AlbumController {
         //URL
         guard let url = URL(string: artWorkUrlString) else { completion(#imageLiteral(resourceName: "noArt")) ; return }
         print("📡\(url.absoluteString)📡")
+        
+        //DataTask
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                print("❌ Error downloading image with DataTask \(error.localizedDescription)")
+                completion(#imageLiteral(resourceName: "noArt")) ; return }
+            guard let data = data,
+                let image = UIImage(data: data) else { completion(#imageLiteral(resourceName: "noArt")) ; return }
+            completion(image)
+        }.resume()
     }
 
 }
