@@ -13,9 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+
 //        AlbumController.fetchAlbumWith(searchTerm: "meatloaf") { (albums) in
 //            guard let albums = albums else { return }
 //            print(albums.count)
@@ -26,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                print("test")
 //            })
 //        }
-        
+
         return true
     }
 
@@ -52,6 +51,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
 }
-

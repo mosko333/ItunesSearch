@@ -13,13 +13,13 @@ struct TopLevelData: Codable {
 }
 
 struct Album: Codable {
-    let collectionName : String
-    let artistName : String
-    let primaryGenreName : String
-    let trackCount : Int
-    let trackPrice : Double
-    let artWorkUrlString : String
-    
+    let collectionName: String?
+    let artistName: String?
+    let primaryGenreName: String?
+    let trackCount: Int?
+    let trackPrice: Double?
+    let artWorkUrlString: String?
+
     enum CodingKeys: String, CodingKey {
         case collectionName
         case artistName

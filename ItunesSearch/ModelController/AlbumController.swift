@@ -12,15 +12,14 @@ class AlbumController {
     struct Constants {
         static let baseURL = URL(string: "https://itunes.apple.com/")
     }
-//https://itunes.apple.com/search?media=music&term=abba
 
     static func fetchAlbumWith(searchTerm: String, completion: @escaping (([Album]?) -> Void)) {
         //URL
         guard var url = Constants.baseURL else { completion(nil) ; return }
         url.appendPathComponent("search", isDirectory: true)
         //Query
-        let urlParamaters = [ "media" : "music",
-                             "term" : searchTerm]
+        let urlParamaters = [ "media": "music",
+                             "term": searchTerm]
         var componets = URLComponents(url: url, resolvingAgainstBaseURL: true)
         let queryItems = urlParamaters.compactMap { URLQueryItem(name: $0.key, value: $0.value) }
         componets?.queryItems = queryItems
@@ -40,7 +39,7 @@ class AlbumController {
                 let topLevelData = try jsonDecoder.decode(TopLevelData.self, from: data)
                 let albums = topLevelData.results
                 completion(albums) ; return
-            } catch DecodingError.keyNotFound(let codingKey, let context){
+            } catch DecodingError.keyNotFound(let codingKey, let context) {
                 print("❌Error: Coding key not found: \(codingKey) in \(context)")
                 completion(nil) ; return
             } catch {
@@ -49,12 +48,12 @@ class AlbumController {
             }
         }.resume()
     }
-    
+
     static func fetchImageWith(artWorkUrlString: String, completion: @escaping ((UIImage) -> Void)) {
         //URL
         guard let url = URL(string: artWorkUrlString) else { completion(#imageLiteral(resourceName: "noArt")) ; return }
         print("📡\(url.absoluteString)📡")
-        
+
         //DataTask
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
@@ -67,18 +66,3 @@ class AlbumController {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
